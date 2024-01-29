@@ -1,0 +1,17 @@
+# version: '3.8'
+#MongoDB 5.0+ requires a CPU with AVX support, => sử dụng image: mongo:4.4
+services:
+    be-nest:
+        build:
+            context: .
+            dockerfile: Dockerfile
+
+        expose:
+            # internal port in doker
+            - 6969
+        ports:
+            # port-on-host:port-in-container
+            - 6969:6969
+
+volumes:
+    mongodb:
